@@ -183,7 +183,7 @@ checkComposite _ as = do
   putStrLn "Check composite"
   let missing = missingArrows as
   if null missing
-    then putStrLn "OK, All composites are included"
+    then putStrLn "OK. All composites are included"
     else do
       putStrLn "Following arrows are missing"
       mapM_ showTuple missing
@@ -225,9 +225,9 @@ checkAssociativity _ as = do
   putStrLn "check assosiativity"
   let broken = brokenAssociativity as
   if null broken
-     then putStrLn "OK"
+     then putStrLn "OK. All asosiativity are satisfied"
      else do
-      putStrLn "Following arrows are missing"
+      putStrLn "Following arrows break asosiativity"
       mapM_ (\(_, _, a) -> putStrLn $ show a) broken
 
 brokenAssociativity :: [Arrow] -> [(Maybe Arrow, Maybe Arrow, (Arrow, Arrow, Arrow))]
