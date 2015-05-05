@@ -300,35 +300,3 @@ makeOneToOne :: [Element] -> [Element] -> Maybe (Map.Map Element Element)
 makeOneToOne from to = if (length from == length to)
   then Just $ Map.fromList $ zip from to
   else Nothing
-{-
-tobj1 :: Object
-tobj1 = Object [I 1, I 2, I 3]
-tobj2 :: Object
-tobj2 = Object [S "a", S "b"]
-tobj3 :: Object
-tobj3 = Object [I 1]
-tobj4 :: Object
-tobj4 = Object [I 2, I 4]
-tobj5 :: Object
-tobj5 = Object [Is [1,2,3], Is [3,4], Is [1,1]]
-
-tsets :: SetsFin
-tsets = generate [tobj1, tobj2, tobj3, tobj4]
-
-farr1 = hom_ tsets tobj1
-farr2 = hom_ tsets tobj2
-farr3 = hom_ tsets tobj3
-farr4 = hom_ tsets tobj4
-
-farr1cods = Set.fromList $ map (\a -> cod a) farr1
-farr2cods = Set.fromList $ map (\a -> cod a) farr2
-farr3cods = Set.fromList $ map (\a -> cod a) farr3
-farr4cods = Set.fromList $ map (\a -> cod a) farr4
-
-test1 = length (arrowsNotToSmaller tobj4 tobj3) == 0
-test2 = length (arrowsNotToSmaller tobj2 tobj4) == 4
-test3 = length (arrowsNotToSmaller tobj2 tobj1) == 9
-
-tval = validate $ generateFromInt [1,2,3]
-tval2 = validate $ SetsFin (getObjects tsets) (drop 20 (getArrows tsets))
--}
